@@ -9,7 +9,7 @@ frame1_gray = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
 frame1_gray = cv2.GaussianBlur(frame1_gray, (21, 21), 0)
 
 # Initialize the number of moment
-moment_count = 0
+moment_detected = 0
 
 while True:
     # Read the next frame
@@ -44,16 +44,16 @@ while True:
         (x, y, w, h) = cv2.boundingRect(contour)
         cv2.rectangle(frame2, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-        # Increment the moment count
-        moment_count += 1
+        # Increment the moment detected
+        moment_detected += 1
 
     # Update the previous frame
     frame1_gray = frame2_gray
 
-    # Display the frame with the bounding boxes and the moment count
-    cv2.putText(frame2, f"moment count: {moment_count}",
+    # Display the frame with the bounding boxes and the moment detected
+    cv2.putText(frame2, f"moment detected: {moment_detected}",
                 (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-    cv2.imshow("moment count", frame2)
+    cv2.imshow("moment detected", frame2)
     key = cv2.waitKey(1)
 
     # Break the loop if the 'q' key is pressed
