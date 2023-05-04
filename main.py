@@ -1,5 +1,6 @@
 import cv2
 
+
 # Load the video file
 cap = cv2.VideoCapture("2.mp4")
 
