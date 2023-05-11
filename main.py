@@ -1,6 +1,8 @@
 import cv2
+
 # Load the video file
 cap = cv2.VideoCapture("3.mp4")
+
 # Initialize the first frame
 ret, frame1 = cap.read()
 frame1_gray = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
